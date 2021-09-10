@@ -15,7 +15,7 @@ class Api::V1::ProductsController < ApplicationController
       description: prod_params[:description]
     )
     if product.save
-      render json: product, status 200
+      render json: product, status: 200
     else
       render json: {error: "Error creating product."}
     end
@@ -26,7 +26,7 @@ class Api::V1::ProductsController < ApplicationController
   def show
     product = Product.find_by(id: params[:id])
     if product
-      render json: product, status 200
+      render json: product, status: 200
     else
       render json: {error: "Procuct Not Found."}
     end
@@ -43,5 +43,4 @@ class Api::V1::ProductsController < ApplicationController
         :description
       ])
     end
-  end
 end
